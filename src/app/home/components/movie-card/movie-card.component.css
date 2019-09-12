@@ -1,0 +1,12 @@
+.card{
+  height: auto;
+  margin: auto;
+}
+ .card-text{
+   white-space: nowrap;
+   overflow:hidden ;
+   text-overflow: ellipsis;
+ }
+.button {
+  padding: 25px;
+}

@@ -1,0 +1,9 @@
+{
+  "REGISTER": {
+    "EMAIL": "Email",
+    "NAME": "Name",
+    "PASSWORD": "Password",
+    "CONFIRM-PASSWORD": "Confirm Password",
+    "BUTTON": "REGISTER"
+  }
+}
