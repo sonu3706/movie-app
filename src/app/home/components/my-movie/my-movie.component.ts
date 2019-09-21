@@ -15,6 +15,7 @@ export class MyMovieComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('my movie component loaded');
     this.getAllSavedMovies();
   }
 

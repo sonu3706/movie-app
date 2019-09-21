@@ -46,6 +46,7 @@ public class MovieController {
 
     }
 
+
     @GetMapping()
     public ResponseEntity<?> getAllSavedMovie() {
         ResponseEntity responseEntity = null;

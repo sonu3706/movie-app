@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HomeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

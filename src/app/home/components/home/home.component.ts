@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesearchService } from '../../services/moviesearch.service';
 import { Movie } from '../../model/movie';
 import { MoviesaveService } from '../../services/moviesave.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,16 @@ export class HomeComponent implements OnInit {
   public trendingMovieData: Movie[];
   public isMovieDataPresent = false;
 
-  constructor(private movieSearch: MoviesearchService, private movieSave: MoviesaveService) { }
+  constructor(private movieSearch: MoviesearchService, private movieSave: MoviesaveService, private router: Router) { }
 
   ngOnInit() {
-    this.getAllTrendingMovie('movie');
-    this.getAllTrendingTvShow('tv');
+    if(this.router.url === '/home/trending'){
+      console.log(this.router.url);
+      this.getAllTrendingMovie('movie');
+    }
+    else if(this.router.url === '/home/tv'){
+      this.getAllTrendingTvShow('tv');
+    }
   }
 
   showData(movies: Movie[]) {
@@ -32,14 +38,19 @@ export class HomeComponent implements OnInit {
 
   getAllTrendingMovie(movie: string) {
     this.movieSearch.getTrending(movie).subscribe(data => {
-      this.trendingMovieData = data.results;
-      console.log(this.trendingMovieData);
+      this.movieData = data.results;
+      this.showData(this.movieData);
+      this.isMovieDataPresent = true;
     });
   }
 
   getAllTrendingTvShow(tv: string) {
     this.movieSearch.getTrending(tv).subscribe(data => {
       console.log(data.results);
+      this.movieData = data.results;
+      this.showData(this.movieData);
+      this.isMovieDataPresent = true;
+      
     });
   }
 
