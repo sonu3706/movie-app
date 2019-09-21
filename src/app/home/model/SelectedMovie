@@ -1,6 +1,0 @@
-import {Movie} from './movie';
-
-export interface SelectedMovie {
-  movie: Movie;
-  index: number;
-}
