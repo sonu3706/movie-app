@@ -19,9 +19,8 @@ export class NavbarComponent implements OnInit {
   onSearch() {
     console.log(this.search.value);
     this.movieSearch.searchMovie(this.search.value).subscribe( data => {
-      console.log(data.results);
       this.movieShare.setMovieData(data.results);
-      this.router.navigate([`home`]);
+      this.router.navigate([`search`]);
     });
   }
 }
