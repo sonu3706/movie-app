@@ -17,4 +17,9 @@ export class MoviesearchService {
     const url = 'https://api.themoviedb.org/3/search/movie?api_key=06203334b59c6a533b36ecd954eb2d14&query='.concat(movieName);
     return this.http.get(url, httpOptions);
   }
+
+  public getTrendingMovies(mediaType: string): Observable<any>{
+    const url = `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=06203334b59c6a533b36ecd954eb2d14`;
+    return this.http.get(url, httpOptions);
+  }
 }

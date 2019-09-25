@@ -5,7 +5,12 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 
 const routes: Routes = [
-  { path: 'search', component: SearchResultComponent }
+  { path: 'search', component: SearchResultComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'trending', component: HomeComponent },
+  { path: 'tv', component: HomeComponent }
+
 ];
 
 @NgModule({

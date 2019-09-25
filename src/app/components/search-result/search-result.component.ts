@@ -16,7 +16,7 @@ export class SearchResultComponent implements OnInit {
   ngOnInit() {
     this.searchResult();
   }
-  searchResult(): void {
+ private searchResult(): void {
     this.movieData = this.movieShare.getMovieData();
     for(const movie of this.movieData){
       movie.buttonValue = 'Save';

@@ -13,7 +13,10 @@ export class NavbarComponent implements OnInit {
 
   search = new FormControl('');
 
-  constructor(private movieSearch: MoviesearchService, private movieShare: MovieshareService, private router: Router) { }
+  constructor(
+    private movieSearch: MoviesearchService, 
+    private movieShare: MovieshareService, 
+    private router: Router) { }
 
   ngOnInit() { }
   onSearch() {
