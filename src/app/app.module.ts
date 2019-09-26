@@ -10,7 +10,6 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchResultComponent } from './components/search-result/search-result.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { ButtonComponent } from './components/shared/button/button.component';
 
@@ -19,7 +18,6 @@ import { ButtonComponent } from './components/shared/button/button.component';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    SearchResultComponent,
     MovieCardComponent,
     ButtonComponent
   ],

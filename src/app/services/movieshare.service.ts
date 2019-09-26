@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Movie } from '../models/movie';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieshareService {
   private movieData: Movie[];
+  private messageSource = new BehaviorSubject<Movie[]>(this.movieData);
+  //currentMovieData = this.messageSource.asObservable();
 
   constructor() { }
 
-  setMovieData(movies: Movie[]): void {
-    this.movieData = movies;
+  getMovieData(): Observable<Movie[]> {
+    return this.messageSource.asObservable();
   }
 
-  getMovieData(): Movie[] {
-    return this.movieData;
+  setMovieData(movies: Movie[]): void {
+    this.messageSource.next(movies);
   }
 }

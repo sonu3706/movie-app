@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MoviesearchService } from 'src/app/services/moviesearch.service';
 import { MovieshareService } from 'src/app/services/movieshare.service';
@@ -12,6 +12,7 @@ import { Route, Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   search = new FormControl('');
+  @Output() event = new EventEmitter();
 
   constructor(
     private movieSearch: MoviesearchService, 
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit {
     console.log(this.search.value);
     this.movieSearch.searchMovie(this.search.value).subscribe( data => {
       this.movieShare.setMovieData(data.results);
-      this.router.navigate([`search`]);
+      this.event.emit('event emitted');
     });
   }
 }

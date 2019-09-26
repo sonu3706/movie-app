@@ -30,10 +30,12 @@ export class HomeComponent implements OnInit {
     }
   }
   public searchResult(): void {
-    this.movieData = this.movieShare.getMovieData();
-    for (const movie of this.movieData) {
+   this.movieShare.getMovieData().subscribe( data => {
+     this.movieData = data;
+     for (const movie of this.movieData) {
       movie.buttonValue = 'Save';
     }
+   });
   }
 
   private getTrendingMovies(): void {
@@ -53,5 +55,9 @@ export class HomeComponent implements OnInit {
         tv.buttonValue = 'Save';
       }
     });
+  }
+
+  onEvent( event: any){
+    this.searchResult();
   }
 }

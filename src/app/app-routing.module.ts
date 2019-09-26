@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { SearchResultComponent } from './components/search-result/search-result.component';
 
 const routes: Routes = [
-  { path: 'search', component: SearchResultComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'trending', component: HomeComponent },
