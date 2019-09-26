@@ -8,7 +8,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class MovieshareService {
   private movieData: Movie[];
   private messageSource = new BehaviorSubject<Movie[]>(this.movieData);
-  //currentMovieData = this.messageSource.asObservable();
 
   constructor() { }
 

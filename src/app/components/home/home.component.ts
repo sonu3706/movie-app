@@ -22,20 +22,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('home');
-    if(this.route.url === '/trending'){
+    if (this.route.url === '/trending') {
       this.getTrendingMovies();
     }
-    if(this.route.url === '/tv'){
+    if (this.route.url === '/tv') {
       this.getTredingTvShow();
     }
   }
   public searchResult(): void {
-   this.movieShare.getMovieData().subscribe( data => {
-     this.movieData = data;
-     for (const movie of this.movieData) {
-      movie.buttonValue = 'Save';
-    }
-   });
+    this.movieShare.getMovieData().subscribe(data => {
+      this.movieData = data;
+      for (const movie of this.movieData) {
+        movie.buttonValue = 'Save';
+      }
+    });
   }
 
   private getTrendingMovies(): void {
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onEvent( event: any){
+  onEvent(event: any) {
     this.searchResult();
   }
 }
