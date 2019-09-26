@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() { }
 
   onSearch() {
-  
     this.movieSearch.searchMovie(this.search.value).subscribe(data => {
       this.movieShare.setMovieData(data.results);
       this.event.emit('event emitted');

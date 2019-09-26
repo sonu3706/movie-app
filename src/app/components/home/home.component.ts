@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+  
 
   private getTredingTvShow(): void {
     this.movieSearch.getTrendingMovies('tv').subscribe(data => {
