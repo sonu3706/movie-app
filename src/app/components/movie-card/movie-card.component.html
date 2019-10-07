@@ -1,61 +1,38 @@
 <div class="row">
   <div class="card" style="width: 18rem;" *ngFor="let movie of movies">
     <!--        <img src="{{movie.poster_path}}}" class="card-img-top" alt="movie poster">-->
+    <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{ movie.title }}</h5>
       <p class="card-text">{{ movie.overview }}</p>
-      <app-button
-        class="button"
-        [button]="movie.buttonValue"
-        (click)="onAction(movie)"
-      ></app-button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#exampleModal"
-        (click)="showMovie(movie)"
-      >
+      <!-- <app-button class="button" [button]="movie.buttonValue" (click)="onAction(movie)"></app-button> -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        (click)="showMovie(movie)">
         Details
       </button>
     </div>
   </div>
 </div>
-
-<!-- Modal START -->
-<div
-  *ngIf="modalSelected"
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
+<!-- Modal Start -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle"
+  aria-hidden="true" *ngIf="modalSelected">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          {{ this.movie.title }}
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <h5 class="modal-title" id="exampleModalScrollableTitle">{{ this.movie.title }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" class="card-img-top">
         <p>{{ movie.overview }}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" (click)="saveMovie(movie)">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+<!-- Modal Ends -->

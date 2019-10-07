@@ -1,6 +1,6 @@
 <app-navbar (event)="onEvent($event)"></app-navbar>
 <div>
-  <app-movie-card [movies]="movieData"></app-movie-card>
+  <app-movie-card [movies]="movieData" (selectedMovie)="selectedMovie($event)"></app-movie-card>
 </div>
 <br />
 <div>

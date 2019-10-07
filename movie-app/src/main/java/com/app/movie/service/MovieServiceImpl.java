@@ -56,7 +56,7 @@ public class MovieServiceImpl implements MovieService {
             fetchedMovie = movieRepository.findById(id).get();
             reviews = fetchedMovie.getReviews();
             if (reviews != null) {
-                review.setReviewAddedOn(new Date().toString());
+              //  review.setReviewAddedOn(new Date().toString());
                 reviews.add(review);
             }
         }

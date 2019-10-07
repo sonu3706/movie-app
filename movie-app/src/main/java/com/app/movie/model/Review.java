@@ -2,50 +2,50 @@ package com.app.movie.model;
 
 public class Review {
 
-    private String reviewId;
-    private String reviewContent;
-    private String reviewAddedOn;
-    private String reviewAddedBy;
+    private String id;
+    private String author;
+    private String content;
+    private String url;
 
-    public String getReviewId() {
-        return reviewId;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setReviewId(String reviewId) {
-        this.reviewId = reviewId;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getReviewContent() {
-        return reviewContent;
-    }
+  public String getAuthor() {
+    return author;
+  }
 
-    public void setReviewContent(String reviewContent) {
-        this.reviewContent = reviewContent;
-    }
+  public void setAuthor(String author) {
+    this.author = author;
+  }
 
-    public String getReviewAddedOn() {
-        return reviewAddedOn;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setReviewAddedOn(String reviewAddedOn) {
-        this.reviewAddedOn = reviewAddedOn;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public String getReviewAddedBy() {
-        return reviewAddedBy;
-    }
+  public String getUrl() {
+    return url;
+  }
 
-    public void setReviewAddedBy(String reviewAddedBy) {
-        this.reviewAddedBy = reviewAddedBy;
-    }
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-    @Override
-    public String toString() {
-        return "Review{" +
-                "reviewId='" + reviewId + '\'' +
-                ", reviewContent='" + reviewContent + '\'' +
-                ", reviewAddedOn='" + reviewAddedOn + '\'' +
-                ", reviewAddedBy='" + reviewAddedBy + '\'' +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Review{" +
+      "id='" + id + '\'' +
+      ", author='" + author + '\'' +
+      ", content='" + content + '\'' +
+      ", url='" + url + '\'' +
+      '}';
+  }
 }

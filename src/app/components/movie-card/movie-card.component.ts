@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
+import { MoviesearchService } from 'src/app/services/moviesearch.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -9,16 +10,28 @@ import { Movie } from 'src/app/models/movie';
 export class MovieCardComponent implements OnInit {
 
   @Input('movies') movies: Movie[];
-  private movie: Movie;
-  private modalSelected: boolean = false;
+  @Output() selectedMovie = new EventEmitter<Movie>();
+  public movie: Movie;
+  public modalSelected: boolean = false;
 
-  constructor() { }
+  constructor(private movieSearch: MoviesearchService) { }
 
   ngOnInit() {
   }
 
-  showMovie(movie: Movie): void {
-    this.modalSelected = true;
-    this.movie = movie;
+ public showMovie(movie: Movie): void {
+    this.movieSearch.getMovieDetails(movie.id).subscribe(data => {
+      this.movie = data;
+      this.movieSearch.getMovieReviews(movie.id).subscribe( response => {
+        this.movie.reviews = response.results;
+        console.log(this.movie.reviews);
+      });
+      this.modalSelected = true;
+    });
+  }
+
+  public saveMovie(movie: Movie): void {
+    console.log(movie);
+    this.selectedMovie.emit(movie);
   }
 }

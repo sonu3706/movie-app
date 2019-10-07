@@ -1,3 +1,5 @@
+import { Review } from './review';
+
 export class Movie {
   id: number;
   title: string;
@@ -10,4 +12,5 @@ export class Movie {
   vote_count: number;
   genre_ids: number[];
   buttonValue: string;
+  reviews: Review[];
 }
